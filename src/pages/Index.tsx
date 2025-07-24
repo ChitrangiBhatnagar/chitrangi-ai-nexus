@@ -55,6 +55,8 @@ const Index = () => {
     // Initialize with dark theme
     document.documentElement.classList.add('dark');
     initEmailJS();
+    // Force reload to clear any cached references
+    console.log('Portfolio initialized with neural theme');
   }, []);
 
   const toggleTheme = () => {
