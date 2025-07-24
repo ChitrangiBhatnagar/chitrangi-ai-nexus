@@ -85,17 +85,43 @@ export default {
 					'0%': { opacity: '0', transform: 'translateX(30px)' },
 					'100%': { opacity: '1', transform: 'translateX(0)' }
 				},
-				'float': {
-					'0%, 100%': { transform: 'translateY(0px)' },
-					'50%': { transform: 'translateY(-20px)' }
+				'float-neural': {
+					'0%, 100%': { 
+						transform: 'translateY(0px) rotateY(0deg)',
+						filter: 'hue-rotate(0deg)'
+					},
+					'33%': { 
+						transform: 'translateY(-15px) rotateY(120deg)',
+						filter: 'hue-rotate(120deg)'
+					},
+					'66%': { 
+						transform: 'translateY(-25px) rotateY(240deg)',
+						filter: 'hue-rotate(240deg)'
+					}
 				},
-				'pulse-glow': {
-					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--primary) / 0.4)' },
-					'50%': { boxShadow: '0 0 40px hsl(var(--primary) / 0.6)' }
+				'shimmer': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(100%)' }
 				},
-				'typing': {
-					'0%': { width: '0' },
-					'100%': { width: '100%' }
+				'data-flow': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(100%)' }
+				},
+				'pulse-neural': {
+					'0%, 100%': { 
+						boxShadow: '0 0 20px hsl(var(--primary) / 0.4), 0 0 40px hsl(var(--accent) / 0.2)'
+					},
+					'50%': { 
+						boxShadow: '0 0 40px hsl(var(--primary) / 0.6), 0 0 80px hsl(var(--accent) / 0.4)'
+					}
+				},
+				'neural-glow': {
+					'0%, 100%': { 
+						textShadow: '0 0 5px hsl(var(--primary) / 0.8), 0 0 10px hsl(var(--primary) / 0.6), 0 0 15px hsl(var(--primary) / 0.4)'
+					},
+					'50%': { 
+						textShadow: '0 0 10px hsl(var(--primary) / 1), 0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--primary) / 0.6)'
+					}
 				}
 			},
 			animation: {
@@ -103,10 +129,12 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in-up': 'fade-in-up 0.6s ease-out',
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
-				'float': 'float 6s ease-in-out infinite',
-				'float-delayed': 'float 6s ease-in-out infinite 2s',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-				'typing': 'typing 3s steps(40, end)'
+				'float-neural': 'float-neural 8s ease-in-out infinite',
+				'float-neural-delayed': 'float-neural 8s ease-in-out infinite 3s',
+				'shimmer': 'shimmer 2s linear infinite',
+				'data-flow': 'data-flow 2s linear infinite',
+				'pulse-neural': 'pulse-neural 2s ease-in-out infinite',
+				'neural-glow': 'neural-glow 2s ease-in-out infinite'
 			}
 		}
 	},

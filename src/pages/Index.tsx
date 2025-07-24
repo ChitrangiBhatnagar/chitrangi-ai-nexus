@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 import { 
   Brain, 
   Code, 
@@ -23,27 +24,77 @@ import {
   Lightbulb,
   Target,
   Zap,
-  Heart
+  Heart,
+  Send,
+  Settings,
+  Cpu,
+  Network,
+  Shield
 } from "lucide-react";
 import { TypingAnimation } from "@/components/TypingAnimation";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SkillBar } from "@/components/SkillBar";
 import { TimelineItem } from "@/components/TimelineItem";
-import heroBackground from "@/assets/hero-background.jpg";
+import { EmailConfig } from "@/components/EmailConfig";
+import { sendContactEmail, initEmailJS, type ContactFormData } from "@/services/emailService";
+import neuralHeroBg from "@/assets/neural-hero-bg.jpg";
 
 const Index = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true); // Default to dark mode for neural theme
+  const [showEmailConfig, setShowEmailConfig] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const { toast } = useToast();
+
+  useEffect(() => {
+    // Initialize with dark theme
+    document.documentElement.classList.add('dark');
+    initEmailJS();
+  }, []);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
     document.documentElement.classList.toggle('dark');
+    document.documentElement.classList.toggle('light');
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      const success = await sendContactEmail(formData);
+      if (success) {
+        toast({
+          title: "Message sent! 🚀",
+          description: "Thanks for reaching out! I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please check your EmailJS configuration or try again later.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const typingTexts = [
-    "AI/ML Engineer",
-    "Social Innovator", 
-    "Hackathon Winner",
-    "Tech Leader",
+    "Neural Network Architect",
+    "AI/ML Engineer", 
+    "Social Tech Innovator",
+    "Hackathon Champion",
+    "Accessibility Advocate",
     "Problem Solver"
   ];
 
@@ -153,15 +204,15 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Neural Network Theme */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden neural-grid">
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url(${heroBackground})`,
+            backgroundImage: `url(${neuralHeroBg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: 0.1
+            opacity: 0.3
           }}
         />
         <div className="absolute inset-0 gradient-hero z-10" />
@@ -169,12 +220,12 @@ const Index = () => {
         <div className="relative z-20 text-center max-w-4xl mx-auto px-6">
           <div className="space-y-6 animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-bold">
-              <span className="text-foreground">Chitrangi</span>
+              <span className="text-foreground animate-neural-glow">Chitrangi</span>
               <br />
-              <span className="gradient-primary bg-clip-text text-transparent">Bhatnagar</span>
+              <span className="gradient-neural bg-clip-text text-transparent">Bhatnagar</span>
             </h1>
             
-            <div className="text-xl md:text-2xl text-muted-foreground h-8">
+            <div className="text-xl md:text-2xl text-primary h-8">
               <TypingAnimation texts={typingTexts} className="font-medium" />
             </div>
             
@@ -184,15 +235,15 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-              <Button size="lg" className="gradient-primary shadow-glow hover:shadow-[0_0_50px_hsl(var(--primary)_/_0.4)] transition-all">
+              <Button variant="neural" size="lg" className="shadow-neural">
                 <ExternalLink className="mr-2 h-5 w-5" />
                 View Projects
               </Button>
-              <Button variant="outline" size="lg" className="hover:bg-primary hover:text-primary-foreground transition-all">
+              <Button variant="cyber" size="lg">
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
               </Button>
-              <Button variant="ghost" size="lg" className="hover:text-primary transition-all">
+              <Button variant="glow" size="lg">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 Let's Connect
               </Button>
@@ -200,20 +251,20 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Floating elements */}
-        <div className="absolute top-20 left-10 opacity-20">
-          <div className="float">
-            <Brain className="h-8 w-8 text-primary" />
+        {/* Neural Floating Elements */}
+        <div className="absolute top-20 left-10 opacity-30">
+          <div className="float-neural">
+            <Cpu className="h-8 w-8 text-primary" />
           </div>
         </div>
-        <div className="absolute top-40 right-20 opacity-20">
-          <div className="float-delayed">
-            <Code className="h-10 w-10 text-primary" />
+        <div className="absolute top-40 right-20 opacity-30">
+          <div className="float-neural-delayed">
+            <Network className="h-10 w-10 text-accent" />
           </div>
         </div>
-        <div className="absolute bottom-40 left-20 opacity-20">
-          <div className="float">
-            <Database className="h-6 w-6 text-primary" />
+        <div className="absolute bottom-40 left-20 opacity-30">
+          <div className="float-neural">
+            <Shield className="h-6 w-6 text-primary" />
           </div>
         </div>
       </section>
@@ -422,35 +473,82 @@ const Index = () => {
               </div>
             </div>
 
-            <Card className="shadow-card">
-              <CardHeader>
-                <CardTitle>Send a Message</CardTitle>
-                <CardDescription>
-                  I'm always open to discussing new projects and opportunities.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <Input placeholder="Your Name" />
+            <div className="space-y-6">
+              <Card className="shadow-cyber border-primary/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    Send a Message
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      onClick={() => setShowEmailConfig(!showEmailConfig)}
+                    >
+                      <Settings className="h-4 w-4" />
+                    </Button>
+                  </CardTitle>
+                  <CardDescription>
+                    I'm always open to discussing new projects and opportunities.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {showEmailConfig && (
+                    <div className="mb-6">
+                      <EmailConfig onSave={() => setShowEmailConfig(false)} />
                     </div>
-                    <div>
-                      <Input type="email" placeholder="Your Email" />
+                  )}
+                  
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <Input 
+                        placeholder="Your Name" 
+                        value={formData.name}
+                        onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                        required
+                      />
+                      <Input 
+                        type="email" 
+                        placeholder="Your Email" 
+                        value={formData.email}
+                        onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                        required
+                      />
                     </div>
-                  </div>
-                  <div>
-                    <Input placeholder="Subject" />
-                  </div>
-                  <div>
-                    <Textarea placeholder="Your message..." rows={4} />
-                  </div>
-                  <Button className="w-full gradient-primary shadow-glow">
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    <Input 
+                      placeholder="Subject" 
+                      value={formData.subject}
+                      onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
+                      required
+                    />
+                    <Textarea 
+                      placeholder="Your message..." 
+                      rows={4} 
+                      value={formData.message}
+                      onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                      required
+                    />
+                    <Button 
+                      type="submit" 
+                      variant="neural" 
+                      size="lg"
+                      className="w-full" 
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-background mr-2"></div>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-4 w-4" />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>

@@ -1,119 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Chitrangi's Portfolio Design System - Tech-minimal with human touch */
+/* Chitrangi's Unique AI-Inspired Portfolio Design System */
 
 @layer base {
   :root {
-    /* Core Brand Colors */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 12.5%; /* Soft charcoal #1f1f1f */
+    /* Neural Network Inspired Color Palette */
+    --background: 5 5% 8%; /* Deep neural black */
+    --foreground: 180 100% 95%; /* Bright cyan-white */
     
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 12.5%;
+    --card: 220 13% 12%; /* Dark neural card */
+    --card-foreground: 180 100% 95%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 12.5%;
+    --popover: 220 13% 12%;
+    --popover-foreground: 180 100% 95%;
     
-    /* Electric Blue as Primary */
-    --primary: 220 100% 56%; /* Electric blue #2979ff */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 220 100% 70%;
+    /* Electric AI Blue - Primary */
+    --primary: 195 100% 50%; /* Neon cyan #00bfff */
+    --primary-foreground: 5 5% 8%;
+    --primary-glow: 195 100% 70%;
+    --primary-dark: 195 100% 35%;
     
-    /* Soft Secondary Tones */
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 0 0% 12.5%;
+    /* Secondary Neural Purple */
+    --secondary: 270 100% 20%; /* Deep neural purple */
+    --secondary-foreground: 270 100% 90%;
     
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 8.9% 46.1%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
     
-    --accent: 220 100% 96%;
-    --accent-foreground: 220 100% 56%;
+    /* Accent Electric Magenta */
+    --accent: 315 100% 60%; /* Electric magenta #ff00ff */
+    --accent-foreground: 5 5% 8%;
     
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 100% 60%;
     --destructive-foreground: 0 0% 98%;
     
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 220 100% 56%;
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 195 100% 50%;
     
     --radius: 1rem;
     
-    /* Custom Portfolio Colors */
-    --gradient-primary: linear-gradient(135deg, hsl(220 100% 56%), hsl(220 100% 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 100% 56% / 0.1), hsl(220 100% 70% / 0.05));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 14% 98%));
+    /* Neural Network Gradients */
+    --gradient-neural: linear-gradient(135deg, hsl(195 100% 50%), hsl(270 100% 60%), hsl(315 100% 60%));
+    --gradient-cyber: linear-gradient(90deg, hsl(195 100% 50% / 0.8), hsl(315 100% 60% / 0.8));
+    --gradient-hero: radial-gradient(ellipse at center, hsl(195 100% 50% / 0.15), hsl(270 100% 60% / 0.1), transparent);
+    --gradient-card: linear-gradient(145deg, hsl(220 13% 12%), hsl(220 13% 15%));
     
-    /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(220 100% 56% / 0.08);
-    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.06);
-    --shadow-glow: 0 0 40px hsl(220 100% 56% / 0.2);
+    /* AI-themed Shadows & Glows */
+    --shadow-neural: 0 0 30px hsl(195 100% 50% / 0.3), 0 0 60px hsl(315 100% 60% / 0.2);
+    --shadow-cyber: 0 8px 32px hsl(195 100% 50% / 0.2);
+    --shadow-glow: 0 0 50px hsl(195 100% 50% / 0.4);
+    --shadow-purple: 0 0 30px hsl(270 100% 60% / 0.3);
     
     /* Animation Variables */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-neural: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-cyber: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    /* Dark Mode - Charcoal Background */
-    --background: 0 0% 12.5%; /* Soft charcoal #1f1f1f */
-    --foreground: 0 0% 98%;
+  /* Light Mode - Optional, but keeping neural aesthetics */
+  .light {
+    --background: 220 13% 96%; /* Almost white with slight blue tint */
+    --foreground: 220 13% 8%; /* Dark neural */
     
-    --card: 0 0% 16%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 8%;
     
-    --popover: 0 0% 16%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 8%;
     
-    /* Electric Blue in Dark Mode */
-    --primary: 220 100% 60%;
-    --primary-foreground: 0 0% 12.5%;
-    --primary-glow: 220 100% 75%;
+    --primary: 195 100% 45%; /* Slightly darker cyan for contrast */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 195 100% 60%;
     
-    --secondary: 220 6% 20%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 13% 90%;
+    --secondary-foreground: 220 13% 8%;
     
-    --muted: 220 6% 20%;
-    --muted-foreground: 220 5% 65%;
+    --muted: 220 13% 92%;
+    --muted-foreground: 220 9% 40%;
     
-    --accent: 220 30% 25%;
-    --accent-foreground: 220 100% 70%;
+    --accent: 315 100% 50%; /* Magenta */
+    --accent-foreground: 0 0% 100%;
     
-    --destructive: 0 70% 55%;
-    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 85%;
+    --input: 220 13% 85%;
+    --ring: 195 100% 45%;
     
-    --border: 220 6% 24%;
-    --input: 220 6% 24%;
-    --ring: 220 100% 60%;
+    /* Light Mode Gradients */
+    --gradient-neural: linear-gradient(135deg, hsl(195 100% 45%), hsl(270 100% 50%), hsl(315 100% 50%));
+    --gradient-cyber: linear-gradient(90deg, hsl(195 100% 45% / 0.1), hsl(315 100% 50% / 0.1));
+    --gradient-hero: radial-gradient(ellipse at center, hsl(195 100% 45% / 0.05), hsl(270 100% 50% / 0.03), transparent);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 13% 98%));
     
-    /* Dark Mode Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 100% 60%), hsl(220 100% 75%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 100% 60% / 0.15), hsl(220 100% 75% / 0.08));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 16%), hsl(220 6% 18%));
-    
-    /* Dark Mode Shadows */
-    --shadow-soft: 0 4px 20px hsl(220 100% 60% / 0.15);
-    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
-    --shadow-glow: 0 0 40px hsl(220 100% 60% / 0.3);
+    /* Light Mode Shadows */
+    --shadow-neural: 0 0 20px hsl(195 100% 45% / 0.15), 0 0 40px hsl(315 100% 50% / 0.1);
+    --shadow-cyber: 0 8px 32px hsl(195 100% 45% / 0.1);
+    --shadow-glow: 0 0 30px hsl(195 100% 45% / 0.2);
+    --shadow-purple: 0 0 20px hsl(270 100% 50% / 0.15);
   }
 }
 
@@ -123,15 +110,21 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', 'JetBrains Mono', monospace, system-ui;
+    background-attachment: fixed;
   }
 }
 
-/* Portfolio-specific animations and components */
+/* Neural Network Portfolio Components */
 @layer components {
-  .gradient-primary {
-    background: var(--gradient-primary);
+  /* Core Gradients */
+  .gradient-neural {
+    background: var(--gradient-neural);
+  }
+  
+  .gradient-cyber {
+    background: var(--gradient-cyber);
   }
   
   .gradient-hero {
@@ -142,101 +135,237 @@
     background: var(--gradient-card);
   }
   
-  .shadow-soft {
-    box-shadow: var(--shadow-soft);
+  /* Neural Shadows & Effects */
+  .shadow-neural {
+    box-shadow: var(--shadow-neural);
   }
   
-  .shadow-card {
-    box-shadow: var(--shadow-card);
+  .shadow-cyber {
+    box-shadow: var(--shadow-cyber);
   }
   
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
   
-  .transition-smooth {
-    transition: var(--transition-smooth);
+  .shadow-purple {
+    box-shadow: var(--shadow-purple);
   }
   
-  .transition-spring {
-    transition: var(--transition-spring);
+  /* Transitions */
+  .transition-neural {
+    transition: var(--transition-neural);
   }
   
-  /* Hero typing animation */
-  .typing-cursor::after {
-    content: '|';
-    animation: blink 1s infinite;
-    color: hsl(var(--primary));
+  .transition-cyber {
+    transition: var(--transition-cyber);
   }
   
-  /* Floating elements */
-  .float {
-    animation: float 6s ease-in-out infinite;
+  /* Neural Network Elements */
+  .neural-grid {
+    background-image: 
+      linear-gradient(rgba(0, 191, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 191, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
   }
   
-  .float-delayed {
-    animation: float 6s ease-in-out infinite 2s;
+  .data-stream {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--primary) / 0.3),
+      transparent
+    );
+    animation: dataFlow 2s linear infinite;
   }
   
-  /* Skill progress bars */
+  /* Enhanced Project Cards */
+  .project-card {
+    @apply gradient-card shadow-cyber rounded-2xl p-6 border border-border/30 transition-neural hover:shadow-neural hover:-translate-y-2 hover:scale-[1.02];
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--primary) / 0.1),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+  
+  .project-card:hover::before {
+    left: 100%;
+  }
+  
+  /* Glass Neural Morphism */
+  .glass-neural {
+    backdrop-filter: blur(16px) saturate(180%);
+    background: hsl(var(--background) / 0.8);
+    border: 1px solid hsl(var(--primary) / 0.2);
+    box-shadow: 0 8px 32px hsl(var(--primary) / 0.1);
+  }
+  
+  /* Skill Bars with Neural Animation */
   .skill-bar {
-    @apply h-2 bg-secondary rounded-full overflow-hidden;
+    @apply h-3 bg-muted rounded-full overflow-hidden relative;
+    box-shadow: inset 0 2px 4px hsl(var(--background) / 0.1);
   }
   
   .skill-progress {
-    @apply h-full bg-gradient-to-r from-primary to-primary/80 rounded-full transition-all duration-1000 ease-out;
+    @apply h-full rounded-full transition-all duration-1000 ease-out relative;
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
   }
   
-  /* Project cards */
-  .project-card {
-    @apply gradient-card shadow-card rounded-2xl p-6 transition-spring hover:shadow-glow hover:-translate-y-2;
+  .skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--foreground) / 0.2),
+      transparent
+    );
+    animation: shimmer 2s linear infinite;
   }
   
-  /* Glass morphism effect */
-  .glass {
-    backdrop-filter: blur(12px);
-    background: hsl(var(--background) / 0.8);
-    border: 1px solid hsl(var(--border) / 0.5);
+  /* Neural Button Variants */
+  .btn-neural {
+    @apply relative overflow-hidden;
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-neural::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--foreground) / 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+  
+  .btn-neural:hover::before {
+    left: 100%;
+  }
+  
+  .btn-neural:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+    transform: translateY(-2px);
+  }
+  
+  /* Typing Animation Enhanced */
+  .typing-cursor::after {
+    content: '█';
+    animation: blink 1s infinite;
+    color: hsl(var(--primary));
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.7);
+  }
+  
+  /* Floating Neural Elements */
+  .float-neural {
+    animation: floatNeural 8s ease-in-out infinite;
+  }
+  
+  .float-neural-delayed {
+    animation: floatNeural 8s ease-in-out infinite 3s;
+  }
+  
+  /* Circuit Board Pattern */
+  .circuit-pattern {
+    background-image: 
+      radial-gradient(circle at 2px 2px, hsl(var(--primary) / 0.3) 1px, transparent 0);
+    background-size: 20px 20px;
   }
 }
 
+/* Neural Network Keyframe Animations */
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@keyframes floatNeural {
+  0%, 100% { 
+    transform: translateY(0px) rotateY(0deg);
+    filter: hue-rotate(0deg);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  33% { 
+    transform: translateY(-15px) rotateY(120deg);
+    filter: hue-rotate(120deg);
   }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  66% { 
+    transform: translateY(-25px) rotateY(240deg);
+    filter: hue-rotate(240deg);
   }
 }
 
-@keyframes pulse-glow {
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes dataFlow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pulseNeural {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+    box-shadow: 
+      0 0 20px hsl(var(--primary) / 0.4),
+      0 0 40px hsl(var(--accent) / 0.2);
   }
   50% {
-    box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    box-shadow: 
+      0 0 40px hsl(var(--primary) / 0.6),
+      0 0 80px hsl(var(--accent) / 0.4);
+  }
+}
+
+@keyframes neuralGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px hsl(var(--primary) / 0.8),
+      0 0 10px hsl(var(--primary) / 0.6),
+      0 0 15px hsl(var(--primary) / 0.4);
+  }
+  50% {
+    text-shadow: 
+      0 0 10px hsl(var(--primary) / 1),
+      0 0 20px hsl(var(--primary) / 0.8),
+      0 0 30px hsl(var(--primary) / 0.6);
+  }
+}
+
+@keyframes circuitPulse {
+  0%, 100% { 
+    background-size: 20px 20px;
+    opacity: 0.3;
+  }
+  50% { 
+    background-size: 25px 25px;
+    opacity: 0.6;
   }
 }
