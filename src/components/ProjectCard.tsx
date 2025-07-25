@@ -1,3 +1,4 @@
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -29,7 +30,7 @@ export const ProjectCard = ({
   tags
 }: ProjectCardProps) => {
   return (
-    <Card className="project-card group">
+    <Card className="project-card group hover:shadow-cyber transition-all duration-300 border-primary/20 hover:border-primary/40">
       <CardHeader>
         <div className="flex items-start justify-between">
           <div className="flex-1">
@@ -48,14 +49,14 @@ export const ProjectCard = ({
           <div className="flex gap-2">
             {githubUrl && (
               <Button variant="ghost" size="sm" asChild>
-                <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
                   <Github className="h-4 w-4" />
                 </a>
               </Button>
             )}
             {liveUrl && (
               <Button variant="ghost" size="sm" asChild>
-                <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+                <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
                   <ExternalLink className="h-4 w-4" />
                 </a>
               </Button>
@@ -87,7 +88,7 @@ export const ProjectCard = ({
             <span className="text-sm font-medium text-primary mb-2 block">Tech Stack:</span>
             <div className="flex flex-wrap gap-2">
               {techStack.map((tech, index) => (
-                <Badge key={index} variant="secondary" className="text-xs">
+                <Badge key={index} variant="secondary" className="text-xs hover:bg-primary/20 transition-colors">
                   {tech}
                 </Badge>
               ))}
@@ -96,7 +97,7 @@ export const ProjectCard = ({
           
           <div className="flex flex-wrap gap-2">
             {tags.map((tag, index) => (
-              <Badge key={index} variant="outline" className="text-xs">
+              <Badge key={index} variant="outline" className="text-xs border-primary/30 hover:border-primary/60 transition-colors">
                 {tag}
               </Badge>
             ))}

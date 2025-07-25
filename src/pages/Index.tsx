@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,7 +34,7 @@ import {
 } from "lucide-react";
 import { TypingAnimation } from "@/components/TypingAnimation";
 import { ProjectCard } from "@/components/ProjectCard";
-import { SkillBar } from "@/components/SkillBar";
+import { SkillCard } from "@/components/SkillCard";
 import { TimelineItem } from "@/components/TimelineItem";
 import { EmailConfig } from "@/components/EmailConfig";
 import { sendContactEmail, initEmailJS, type ContactFormData } from "@/services/emailService";
@@ -109,6 +110,7 @@ const Index = () => {
       outcome: "75%+ accuracy in person identification",
       isAward: true,
       awardTitle: "🏆 Best Societal Project 2024",
+      githubUrl: "https://github.com/chitrangi/biometric-tracker",
       tags: ["#SocialImpact", "#Biometrics", "#IoT", "#Python"]
     },
     {
@@ -119,6 +121,7 @@ const Index = () => {
       outcome: "Reduced response time by 60%",
       isAward: true,
       awardTitle: "🥉 Genesys Hackathon Finalist 2025",
+      githubUrl: "https://github.com/chitrangi/multi-agent-cybersecurity",
       tags: ["#AI", "#Cybersecurity", "#RL", "#Chatbot"]
     },
     {
@@ -127,6 +130,7 @@ const Index = () => {
       techStack: ["Python", "Speech Recognition", "TTS", "AI", "Accessibility APIs"],
       role: "Full-stack Developer",
       outcome: "100% accessibility compliance achieved",
+      githubUrl: "https://github.com/chitrangi/accessible-ai-ide",
       tags: ["#Accessibility", "#AI", "#VoiceUI", "#Inclusion"]
     },
     {
@@ -135,6 +139,7 @@ const Index = () => {
       techStack: ["Python", "PyTorch", "LSTM", "BiLSTM", "Financial APIs", "NLP"],
       role: "ML Engineer",
       outcome: "75%+ prediction accuracy on market sentiment",
+      githubUrl: "https://github.com/chitrangi/financial-sentiment-lstm",
       tags: ["#NLP", "#LSTM", "#FinTech", "#DeepLearning"]
     },
     {
@@ -145,19 +150,20 @@ const Index = () => {
       outcome: "Connected 200+ farmers with urban markets",
       isAward: true,
       awardTitle: "🥇 EcoSummit Winner 2024",
+      githubUrl: "https://github.com/chitrangi/farming-tech-platform",
       tags: ["#SocialImpact", "#Agriculture", "#WebDev", "#Sustainability"]
     }
   ];
 
   const skills = [
-    { skill: "Python", percentage: 95, icon: <Code className="h-4 w-4 text-primary" /> },
-    { skill: "Machine Learning", percentage: 90, icon: <Brain className="h-4 w-4 text-primary" /> },
-    { skill: "PyTorch/TensorFlow", percentage: 85, icon: <Zap className="h-4 w-4 text-primary" /> },
-    { skill: "React/TypeScript", percentage: 88, icon: <Code className="h-4 w-4 text-primary" /> },
-    { skill: "LLM/RAG Systems", percentage: 82, icon: <MessageSquare className="h-4 w-4 text-primary" /> },
-    { skill: "Java", percentage: 80, icon: <Code className="h-4 w-4 text-primary" /> },
-    { skill: "C Programming", percentage: 75, icon: <Code className="h-4 w-4 text-primary" /> },
-    { skill: "Cloud Platforms", percentage: 78, icon: <Database className="h-4 w-4 text-primary" /> }
+    { skill: "Python", percentage: 95, icon: <Code className="h-5 w-5 text-primary" />, category: "Programming", level: "Expert" as const },
+    { skill: "Machine Learning", percentage: 90, icon: <Brain className="h-5 w-5 text-primary" />, category: "AI/ML", level: "Expert" as const },
+    { skill: "PyTorch/TensorFlow", percentage: 85, icon: <Zap className="h-5 w-5 text-primary" />, category: "Frameworks", level: "Advanced" as const },
+    { skill: "React/TypeScript", percentage: 88, icon: <Code className="h-5 w-5 text-primary" />, category: "Frontend", level: "Advanced" as const },
+    { skill: "LLM/RAG Systems", percentage: 82, icon: <MessageSquare className="h-5 w-5 text-primary" />, category: "AI/ML", level: "Advanced" as const },
+    { skill: "Java", percentage: 80, icon: <Code className="h-5 w-5 text-primary" />, category: "Programming", level: "Advanced" as const },
+    { skill: "C Programming", percentage: 75, icon: <Code className="h-5 w-5 text-primary" />, category: "Programming", level: "Intermediate" as const },
+    { skill: "Cloud Platforms", percentage: 78, icon: <Database className="h-5 w-5 text-primary" />, category: "Infrastructure", level: "Advanced" as const }
   ];
 
   const experiences = [
@@ -283,7 +289,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-8">
               <Card className="shadow-card">
                 <CardHeader>
@@ -318,16 +324,20 @@ const Index = () => {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold mb-6">Technical Skills</h3>
-              {skills.map((skill, index) => (
-                <SkillBar
-                  key={skill.skill}
-                  skill={skill.skill}
-                  percentage={skill.percentage}
-                  icon={skill.icon}
-                  delay={index * 200}
-                />
-              ))}
+              <h3 className="text-2xl font-semibold mb-6">Technical Expertise</h3>
+              <div className="grid gap-4">
+                {skills.map((skill, index) => (
+                  <SkillCard
+                    key={skill.skill}
+                    skill={skill.skill}
+                    percentage={skill.percentage}
+                    icon={skill.icon}
+                    category={skill.category}
+                    level={skill.level}
+                    delay={index * 200}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -455,19 +465,19 @@ const Index = () => {
 
               <div className="flex gap-4 pt-4">
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/chitrangi" target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" />
                     GitHub
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://linkedin.com/in/chitrangi" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-4 w-4" />
                     LinkedIn
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://instagram.com/dineanddialect" target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Dine & Dialect
                   </a>
