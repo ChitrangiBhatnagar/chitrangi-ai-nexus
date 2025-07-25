@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 import { TypingAnimation } from "@/components/TypingAnimation";
 import { ProjectCard } from "@/components/ProjectCard";
-import { SkillCard } from "@/components/SkillCard";
+import { SkillsCarousel } from "@/components/SkillsCarousel";
 import { TimelineItem } from "@/components/TimelineItem";
 import { EmailConfig } from "@/components/EmailConfig";
 import { sendContactEmail, initEmailJS, type ContactFormData } from "@/services/emailService";
@@ -289,56 +289,42 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-8">
-              <Card className="shadow-card">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Target className="h-5 w-5 text-primary" />
-                    My Mission
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Building AI systems that bridge technological advancement with social impact, 
-                    ensuring that innovation serves everyone, especially underserved communities.
-                  </p>
-                </CardContent>
-              </Card>
+          <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+            <Card className="shadow-card">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Target className="h-5 w-5 text-primary" />
+                  My Mission
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Building AI systems that bridge technological advancement with social impact, 
+                  ensuring that innovation serves everyone, especially underserved communities.
+                </p>
+              </CardContent>
+            </Card>
 
-              <Card className="shadow-card">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Lightbulb className="h-5 w-5 text-primary" />
-                    What Drives Me
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    The intersection of AI/ML with real-world problems. Whether it's accessibility, 
-                    cybersecurity, or social innovation, I'm passionate about creating technology 
-                    that makes a tangible difference.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+            <Card className="shadow-card">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Lightbulb className="h-5 w-5 text-primary" />
+                  What Drives Me
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  The intersection of AI/ML with real-world problems. Whether it's accessibility, 
+                  cybersecurity, or social innovation, I'm passionate about creating technology 
+                  that makes a tangible difference.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
 
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold mb-6">Technical Expertise</h3>
-              <div className="grid gap-4">
-                {skills.map((skill, index) => (
-                  <SkillCard
-                    key={skill.skill}
-                    skill={skill.skill}
-                    percentage={skill.percentage}
-                    icon={skill.icon}
-                    category={skill.category}
-                    level={skill.level}
-                    delay={index * 200}
-                  />
-                ))}
-              </div>
-            </div>
+          <div className="space-y-8">
+            <h3 className="text-3xl font-bold text-center">Technical Expertise</h3>
+            <SkillsCarousel />
           </div>
         </div>
       </section>
