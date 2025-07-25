@@ -95,20 +95,38 @@ const getLevelColor = (level: string) => {
 
 export const SkillsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [api, setApi] = useState<any>();
 
   // Auto-slide functionality
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % skillGroups.length);
-    }, 5000); // Change slide every 5 seconds
+      if (api) {
+        api.scrollNext();
+      }
+    }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [api]);
+
+  // Update current index when carousel changes
+  useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => {
+      setCurrentIndex(api.selectedScrollSnap());
+    };
+
+    api.on('select', onSelect);
+    onSelect();
+
+    return () => api.off('select', onSelect);
+  }, [api]);
 
   return (
     <div className="w-full max-w-5xl mx-auto">
       <Carousel 
         className="w-full"
+        setApi={setApi}
         opts={{
           align: "start",
           loop: true,

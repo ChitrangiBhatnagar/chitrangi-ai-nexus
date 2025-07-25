@@ -247,7 +247,18 @@ const Index = () => {
                 <ExternalLink className="mr-2 h-5 w-5" />
                 View Projects
               </Button>
-              <Button variant="cyber" size="lg">
+              <Button 
+                variant="cyber" 
+                size="lg"
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/ChitrangiBhatnagar_AI_Engineer_Intern.pdf';
+                  link.download = 'ChitrangiBhatnagar_AI_Engineer_Intern.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+              >
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
               </Button>
