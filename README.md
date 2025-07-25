@@ -1,73 +1,50 @@
-# Welcome to your Lovable project
+# 💼 Chitrangi Bhatnagar – AI/ML Engineer Portfolio
 
-## Project info
+Welcome to my personal portfolio repository!  
+I'm **Chitrangi Bhatnagar**, a Computer Science engineer with a specialization in **Artificial Intelligence and Machine Learning**. My portfolio showcases my journey through **real-world AI projects**, **inclusive tech innovations**, **hackathon wins**, and **internship experiences**.
 
-**URL**: https://lovable.dev/projects/fcd50cf5-9a09-4738-8a7b-5bf2a9b5e054
+🔗 [View Live Portfolio](https://your-live-link-here.com)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 About Me
 
-**Use Lovable**
+I’m a software engineer passionate about building impactful solutions at the intersection of **AI, accessibility, and social innovation**. I’ve developed projects ranging from **biometric tracking systems for missing persons** to an **accessible IDE for visually impaired developers**, and led teams at national-level hackathons.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/fcd50cf5-9a09-4738-8a7b-5bf2a9b5e054) and start prompting.
+> _"Engineering AI that empowers and includes."_
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🛠️ Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 👨‍💻 Programming Languages
+- Python | Java | C
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🧠 AI/ML & Generative AI
+- TensorFlow | PyTorch | NLP | LSTM | BiLSTM
+- Prompt Engineering | RAG | LangChain | Pinecone | Weaviate
 
-Follow these steps:
+### 🌐 Web Development
+- ReactJS | HTML | CSS | JavaScript | TypeScript
+- Flask | FastAPI
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 📊 Data & Visualization
+- NumPy | Pandas | Matplotlib | Power BI
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 🛠️ Tools & Platforms
+- Git & GitHub | VS Code | Figma
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 📁 Portfolio Structure
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/fcd50cf5-9a09-4738-8a7b-5bf2a9b5e054) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+```bash
+.
+├── public/
+│   └── ChitrangiBhatnagar_AI_Engineer_Intern.pdf  # Resume
+├── src/
+│   ├── components/       # Reusable React components (Navbar, Projects, etc.)
+│   ├── pages/            # Page routes (Home, About, Projects)
+│   └── assets/           # Images, icons, and logos
+├── README.md             # You're reading it now!
+└── package.json          # Project dependencies and scripts
