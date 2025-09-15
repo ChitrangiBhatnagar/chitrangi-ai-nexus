@@ -369,3 +369,35 @@
     opacity: 0.6;
   }
 }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional Utility Animations */
+.animate-neural-glow {
+  animation: neuralGlow 2s ease-in-out infinite;
+}
+
+.animate-pulse-neural {
+  animation: pulseNeural 2s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Glass Effect for Navigation */
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  background: hsl(var(--background) / 0.85);
+  border: 1px solid hsl(var(--border) / 0.3);
+}
